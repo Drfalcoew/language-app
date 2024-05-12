@@ -19,7 +19,7 @@ const Tab = createBottomTabNavigator();
 
 const MainContainer = () => {
     return (
-        <NavigationContainer theme={ {colors: {background: 'rgba(0,0,0,1.0)'}} }>
+        <NavigationContainer theme={ {colors: {background: 'rgba(0,0,0,1.0)'}} } independent={true}>
             <Tab.Navigator
             
             initialRouteName={homeViewName}

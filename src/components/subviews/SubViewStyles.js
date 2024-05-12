@@ -123,6 +123,16 @@ const styles = StyleSheet.create({
     },
 
     // SelectedView
+    SelectedViewHeader: {
+      width: '100%',
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+    SelectedViewHeaderText: {
+      fontSize: 12,
+        color: 'gray',
+        textAlign: 'center',
+    },
     SelectedViewContainer: {
       flex: 1,
       borderRadius: 20,
@@ -136,13 +146,14 @@ const styles = StyleSheet.create({
       paddingTop: 10,
       marginBottom: 15,
     },
-    SelectedViewImage: {
-        minWidth: '97%',
-        minHeight: height * 0.25,
-        borderRadius: 20,
+    SelectedViewTextContainer: {
+      flex: 0.9,
+      width: '100%',
+      alignItems: 'center',
+      justifyContent: 'center',
     },
     SelectedViewText: {
-        fontSize: 16,
+        fontSize: 22,
         color: '#FFF',
         textAlign: 'center',
         padding: 10,

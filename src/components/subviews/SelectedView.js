@@ -3,6 +3,7 @@ import { View, Text, Image, TouchableOpacity } from 'react-native';
 import styles from "./SubViewStyles";
 import GlowingImage from "./helpers/GlowingImage";
 import data from '../../api/Data';
+import { Divider } from 'react-native-elements';
 
 const SelectedView = ({ view }) => {
     const [isTranslated, setIsTranslated] = useState(false);
@@ -28,9 +29,16 @@ const SelectedView = ({ view }) => {
     return (
         <TouchableOpacity onPress={handleTranslate}>
             <View style={styles.SelectedViewContainer}>
-                <Text style={styles.SelectedViewText}>
-                    {myPhrase}
-                </Text>
+                <View style={styles.SelectedViewTextContainer}>
+                    <Text style={styles.SelectedViewText}>
+                        {myPhrase}
+                    </Text>
+                </View>
+                <View style={styles.SelectedViewHeader}>
+                    <Text style={styles.SelectedViewHeaderText}>
+                        {isTranslated ? "" : "Tap to Translate"}
+                    </Text>
+                </View>
             </View>
         </TouchableOpacity>
     );
