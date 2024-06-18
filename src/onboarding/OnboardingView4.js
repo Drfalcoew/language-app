@@ -1,19 +1,21 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { useUserSettings } from '../UserSettings';
 import GlobalStyles from '../GlobalStyles';
-
 
 const OnboardingView4 = ({ navigation }) => {
   const [selectedStyle, setSelectedStyle] = useState('');
+  const { dispatch } = useUserSettings();
 
   const setAppStyle = (style) => {
     // Set the selected app style
+    dispatch({ type: 'SET_APP_STYLE', payload: style });
     setSelectedStyle(style);
   };
 
   const handleNext = () => {
     // Navigate to the next onboarding view
-    navigation.navigate('OnboardingView5');
+    navigation.navigate('Notifications');
   };
 
   return (
@@ -77,6 +79,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     paddingHorizontal: 20,
+    marginBottom: 32,
   },
   title: {
     fontSize: 24,

@@ -5,7 +5,7 @@ import GlobalStyles from '../GlobalStyles';
 const OnboardingView1 = ({ navigation }) => {
   const handleNext = () => {
     // Navigate to the next onboarding view
-    navigation.navigate('OnboardingView2');
+    navigation.navigate('Interests');
   };
 
   return (
@@ -26,6 +26,7 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
+        marginBottom: 32,
     },
     title: {
         fontSize: 24,

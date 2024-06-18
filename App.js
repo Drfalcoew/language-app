@@ -8,21 +8,22 @@ import OnboardingView3 from './src/onboarding/OnboardingView3';
 import OnboardingView4 from './src/onboarding/OnboardingView4';
 import OnboardingView5 from './src/onboarding/OnboardingView5';
 import OnboardingView6 from './src/onboarding/OnboardingView6';
+import UserSettingsProvider from './src/UserSettings';
 
 const stack = createStackNavigator();
 
 const OnboardingStack = () => {
 
-  const headerShown = false;
+  const headerShown = true;
 
   return (
     <stack.Navigator>
-      <stack.Screen name="OnboardingView1" component={OnboardingView1} options={{ headerShown: headerShown }} />
-      <stack.Screen name="OnboardingView2" component={OnboardingView2} options={{ headerShown: headerShown }} />
-      <stack.Screen name="OnboardingView3" component={OnboardingView3} options={{ headerShown: headerShown }} />
-      <stack.Screen name="OnboardingView4" component={OnboardingView4} options={{ headerShown: headerShown }} />
-      <stack.Screen name="OnboardingView5" component={OnboardingView5} options={{ headerShown: headerShown }} />
-      <stack.Screen name="OnboardingView6" component={OnboardingView6} options={{ headerShown: headerShown }} />
+      <stack.Screen name="Welcome" component={OnboardingView1} options={{ headerShown: headerShown }} />
+      <stack.Screen name="Interests" component={OnboardingView2} options={{ headerShown: headerShown }} />
+      <stack.Screen name="What's your name?" component={OnboardingView3} options={{ headerShown: headerShown }} />
+      <stack.Screen name="App Style" component={OnboardingView4} options={{ headerShown: headerShown }} />
+      <stack.Screen name="Notifications" component={OnboardingView5} options={{ headerShown: headerShown }} />
+      <stack.Screen name="Get Started" component={OnboardingView6} options={{ headerShown: headerShown }} />
       <stack.Screen name="MainContainer" component={MainContainer} options={{ headerShown: false }} />
     </stack.Navigator>
   );
@@ -32,7 +33,9 @@ const OnboardingStack = () => {
 export default function App() {
   return (
     <NavigationContainer>
-      <OnboardingStack />
+      <UserSettingsProvider>
+        <OnboardingStack />
+      </UserSettingsProvider>
     </NavigationContainer>
   );
 }

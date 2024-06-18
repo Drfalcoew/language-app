@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { useUserSettings } from '../UserSettings';
 import GlobalStyles from '../GlobalStyles';
 
 const categories = [
@@ -13,19 +14,26 @@ const categories = [
 
 const OnboardingView2 = ({ navigation }) => {
   const [selectedCategories, setSelectedCategories] = useState([]);
+  const { dispatch } = useUserSettings();
+
+  useEffect(() => {
+    // Update the user settings context whenever selectedCategories changes
+    dispatch({ type: 'SET_INTERESTS', payload: selectedCategories });
+  }, [selectedCategories, dispatch]);
 
   const handleCategorySelect = (category) => {
-    // Toggle selection of the category
-    if (selectedCategories.includes(category)) {
-      setSelectedCategories(selectedCategories.filter((c) => c !== category));
-    } else {
-      setSelectedCategories([...selectedCategories, category]);
-    }
+    setSelectedCategories((prevCategories) => {
+      if (prevCategories.includes(category)) {
+        return prevCategories.filter((c) => c !== category);
+      } else {
+        return [...prevCategories, category];
+      }
+    });
   };
 
   const handleNext = () => {
     // Navigate to the next onboarding view
-    navigation.navigate('OnboardingView3', { selectedCategories });
+    navigation.navigate('What\'s your name?', { selectedCategories });
   };
 
   return (
@@ -57,6 +65,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     paddingHorizontal: 20,
+    marginBottom: 32,
   },
   title: {
     fontSize: 24,

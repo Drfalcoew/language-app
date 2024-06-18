@@ -55,7 +55,6 @@ const styles = StyleSheet.create({
         borderRadius: 20,
         justifyContent: 'flex-end',
         overflow: 'hidden',
-        marginRight: 10,
         backgroundColor: '#1F1F1F',
     },
       categoryBottomView: {

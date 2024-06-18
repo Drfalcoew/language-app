@@ -6,6 +6,7 @@ import { SectionList } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import SelectedView from '../subviews/SelectedView';
 import CalendarComponent from '../subviews/Calendar';
+import { UserSettingsContext } from '../../UserSettings';
 
 const viewDataArray = [
     {
@@ -42,6 +43,10 @@ const HomeView = ({navigation}) => {
     const [selectedIndex, setSelectedIndex] = useState(0);
     const [selectedView, setSelectedView] = useState(viewDataArray[0]);
     const [viewData, setViewData] = useState(viewDataArray);
+
+    const { state, dispatch } = React.useContext(UserSettingsContext);
+
+    console.log(state);
 
     const listComponents = [
         { title: '', data: [0], component: (<CalendarComponent date={todaysDate} /> ) },
